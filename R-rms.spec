@@ -4,7 +4,7 @@
 #
 Name     : R-rms
 Version  : 5.1.2
-Release  : 14
+Release  : 15
 URL      : https://cran.r-project.org/src/contrib/rms_5.1-2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/rms_5.1-2.tar.gz
 Summary  : Regression Modeling Strategies
@@ -12,19 +12,23 @@ Group    : Development/Tools
 License  : GPL-2.0+
 Requires: R-rms-lib
 Requires: R-Hmisc
+Requires: R-SparseM
 Requires: R-htmlTable
 Requires: R-htmltools
 Requires: R-multiwayvcov
 Requires: R-polspline
+Requires: R-quantreg
 Requires: R-treatSens
 BuildRequires : R-Hmisc
+BuildRequires : R-SparseM
 BuildRequires : R-TH.data
 BuildRequires : R-htmlTable
 BuildRequires : R-htmltools
 BuildRequires : R-multiwayvcov
 BuildRequires : R-polspline
+BuildRequires : R-quantreg
 BuildRequires : R-treatSens
-BuildRequires : clr-R-helpers
+BuildRequires : buildreq-R
 
 %description
 graphics, prediction, and typesetting by storing enhanced model design
@@ -57,11 +61,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1521208656
+export SOURCE_DATE_EPOCH=1537778290
 
 %install
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1521208656
+export SOURCE_DATE_EPOCH=1537778290
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
