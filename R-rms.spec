@@ -4,27 +4,42 @@
 #
 Name     : R-rms
 Version  : 5.1.3
-Release  : 19
+Release  : 20
 URL      : https://cran.r-project.org/src/contrib/rms_5.1-3.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/rms_5.1-3.tar.gz
 Summary  : Regression Modeling Strategies
 Group    : Development/Tools
 License  : GPL-2.0+
 Requires: R-rms-lib = %{version}-%{release}
-Requires: R-Hmisc
-Requires: R-acepack
-Requires: R-htmlTable
-Requires: R-htmltools
-Requires: R-multiwayvcov
-Requires: R-polspline
-Requires: R-treatSens
+Requires: R-base64enc
+Requires: R-ggplot2
+Requires: R-gridExtra
+Requires: R-gtable
+Requires: R-latticeExtra
+Requires: R-lazyeval
+Requires: R-multcomp
+Requires: R-munsell
+Requires: R-scales
+Requires: R-tibble
 BuildRequires : R-Hmisc
+BuildRequires : R-SparseM
 BuildRequires : R-TH.data
 BuildRequires : R-acepack
+BuildRequires : R-base64enc
+BuildRequires : R-ggplot2
+BuildRequires : R-gridExtra
+BuildRequires : R-gtable
 BuildRequires : R-htmlTable
 BuildRequires : R-htmltools
+BuildRequires : R-latticeExtra
+BuildRequires : R-lazyeval
+BuildRequires : R-multcomp
 BuildRequires : R-multiwayvcov
+BuildRequires : R-munsell
 BuildRequires : R-polspline
+BuildRequires : R-quantreg
+BuildRequires : R-scales
+BuildRequires : R-tibble
 BuildRequires : R-treatSens
 BuildRequires : buildreq-R
 
@@ -55,10 +70,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1548646824
+export SOURCE_DATE_EPOCH=1552865942
 
 %install
-export SOURCE_DATE_EPOCH=1548646824
+export SOURCE_DATE_EPOCH=1552865942
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -94,8 +109,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library rms|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  rms || :
 
 
 %files
@@ -122,7 +136,6 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/rms/help/rms.rdx
 /usr/lib64/R/library/rms/html/00Index.html
 /usr/lib64/R/library/rms/html/R.css
-/usr/lib64/R/library/rms/libs/symbols.rds
 /usr/lib64/R/library/rms/tests/Glm.s
 /usr/lib64/R/library/rms/tests/Gls.s
 /usr/lib64/R/library/rms/tests/Predict.s
