@@ -4,7 +4,7 @@
 #
 Name     : R-rms
 Version  : 5.1.3.1
-Release  : 24
+Release  : 25
 URL      : https://cran.r-project.org/src/contrib/rms_5.1-3.1.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/rms_5.1-3.1.tar.gz
 Summary  : Regression Modeling Strategies
@@ -12,57 +12,60 @@ Group    : Development/Tools
 License  : GPL-2.0+
 Requires: R-rms-lib = %{version}-%{release}
 Requires: R-Formula
-Requires: R-MatrixModels
-Requires: R-RColorBrewer
-Requires: R-backports
+Requires: R-Hmisc
+Requires: R-SparseM
+Requires: R-acepack
+Requires: R-base64enc
 Requires: R-checkmate
+Requires: R-ggplot2
+Requires: R-gridExtra
+Requires: R-htmlTable
+Requires: R-htmltools
 Requires: R-htmlwidgets
+Requires: R-latticeExtra
+Requires: R-multcomp
+Requires: R-munsell
 Requires: R-mvtnorm
+Requires: R-polspline
+Requires: R-quantreg
 Requires: R-rstudioapi
 Requires: R-sandwich
-Requires: R-xfun
 BuildRequires : R-Formula
 BuildRequires : R-Hmisc
-BuildRequires : R-MatrixModels
-BuildRequires : R-RColorBrewer
 BuildRequires : R-SparseM
 BuildRequires : R-TH.data
 BuildRequires : R-acepack
-BuildRequires : R-backports
 BuildRequires : R-base64enc
 BuildRequires : R-checkmate
 BuildRequires : R-ggplot2
 BuildRequires : R-gridExtra
-BuildRequires : R-gtable
 BuildRequires : R-htmlTable
 BuildRequires : R-htmltools
 BuildRequires : R-htmlwidgets
 BuildRequires : R-latticeExtra
-BuildRequires : R-lazyeval
 BuildRequires : R-multcomp
-BuildRequires : R-multiwayvcov
 BuildRequires : R-munsell
 BuildRequires : R-mvtnorm
 BuildRequires : R-polspline
 BuildRequires : R-quantreg
 BuildRequires : R-rstudioapi
 BuildRequires : R-sandwich
-BuildRequires : R-scales
-BuildRequires : R-tibble
-BuildRequires : R-treatSens
-BuildRequires : R-xfun
 BuildRequires : buildreq-R
 
 %description
-rms
-=====
-Regression Modeling Strategies
-Current Goals
-=============
-* A non-downward compatible change will occur in the next release of the package
-* The survfit.formula function (seen by the user as just survfit) for obtaining nonparametric survival estimates will be replaced by the npsurv function
-* The purpose is to avoid conflicts with the survival package
-* survfit.coxph has a new id option that generalizes individual=TRUE; need to change survfit.cph and survest.cph to use that
+graphics, prediction, and typesetting by storing enhanced model design
+	attributes in the fit.  'rms' is a collection of functions that
+	assist with and streamline modeling.  It also contains functions for
+	binary and ordinal logistic regression models, ordinal models for
+  continuous Y with a variety of distribution families, and the Buckley-James
+	multiple regression model for right-censored responses, and implements
+	penalized maximum likelihood estimation for logistic and ordinary
+	linear models.  'rms' works with almost any regression model, but it
+	was especially written to work with binary or ordinal regression
+	models, Cox regression, accelerated failure time models,
+	ordinary linear models,	the Buckley-James model, generalized least
+	squares for serially or spatially correlated observations, generalized
+	linear models, and quantile regression.
 
 %package lib
 Summary: lib components for the R-rms package.
@@ -79,13 +82,13 @@ lib components for the R-rms package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1556496529
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1562209839
 
 %install
-export SOURCE_DATE_EPOCH=1556496529
+export SOURCE_DATE_EPOCH=1562209839
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -114,7 +117,7 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
