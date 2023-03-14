@@ -4,7 +4,7 @@
 #
 Name     : R-rms
 Version  : 6.5.0
-Release  : 60
+Release  : 61
 URL      : https://cran.r-project.org/src/contrib/rms_6.5-0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/rms_6.5-0.tar.gz
 Summary  : Regression Modeling Strategies
@@ -33,9 +33,6 @@ BuildRequires : R-multcomp
 BuildRequires : R-polspline
 BuildRequires : R-quantreg
 BuildRequires : buildreq-R
-# Suppress stripping binaries
-%define __strip /bin/true
-%define debug_package %{nil}
 
 %description
 graphics, prediction, and typesetting by storing enhanced model design
@@ -69,10 +66,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1676052602
+export SOURCE_DATE_EPOCH=1678835800
 
 %install
-export SOURCE_DATE_EPOCH=1676052602
+export SOURCE_DATE_EPOCH=1678835800
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
