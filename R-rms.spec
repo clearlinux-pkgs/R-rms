@@ -4,7 +4,7 @@
 #
 Name     : R-rms
 Version  : 6.5.0
-Release  : 61
+Release  : 62
 URL      : https://cran.r-project.org/src/contrib/rms_6.5-0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/rms_6.5-0.tar.gz
 Summary  : Regression Modeling Strategies
