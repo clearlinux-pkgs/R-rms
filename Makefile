@@ -1,5 +1,5 @@
 PKG_NAME := R-rms
-URL = https://cran.r-project.org/src/contrib/rms_6.8-2.tar.gz
+URL = https://ftp.osuosl.org/pub/cran/src/contrib/rms_6.9-0.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
